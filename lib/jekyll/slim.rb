@@ -1,10 +1,11 @@
 require 'sliq'
 require 'jekyll'
+require 'jekyll/layout'
 require 'jekyll/slim/version'
 require 'jekyll/slim/include_tag'
 
 module Jekyll
-  class SlimConverter < Converter
+  class Converters::Slim < Converter
     safe true
     priority :low
 
