@@ -1,11 +1,10 @@
 module Jekyll
   class SlimIncludeTag < Jekyll::Tags::IncludeTag
-
-  end
-  class SlimIncludeRelativeTag  < Jekyll::Tags::IncludeRelativeTag
-
+    def read_file(file, context)
+      content = super
+      SlimConverter.new(context.registers[:site].config['slim']).convert(content)
+    end
   end
 end
 
 Liquid::Template.register_tag('slim', Jekyll::SlimIncludeTag)
-Liquid::Template.register_tag('slim_relative', Jekyll::SlimIncludeRelativeTag)

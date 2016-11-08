@@ -17,7 +17,7 @@ module Jekyll
     end
 
     def convert(content)
-      ::Sliq::Converter.new { content }.render
+      ::Sliq::Converter.new(@config['slim']) { content }.render
     end
   end
 end
